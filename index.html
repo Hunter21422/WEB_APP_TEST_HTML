@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Карточка товара</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
     body {
       background-color: #f4f4f4;
@@ -61,7 +63,19 @@
     <img src="https://via.placeholder.com/200" alt="Товар">
     <h2 class="product-title">Название товара</h2>
     <p class="product-price">1 999 ₽</p>
-    <button class="buy-button">Купить</button>
+    <button class="buy-button" onclick="handleBuy()">Купить</button>
   </div>
+
+  <script>
+    // Инициализация Telegram Web App
+    const tg = window.Telegram.WebApp;
+    tg.expand(); // Разворачивает на весь экран
+
+    function handleBuy() {
+      tg.sendData("Пользователь хочет купить: Название товара за 1999₽");
+      tg.close(); // Закрыть Web App после отправки
+    }
+  </script>
 </body>
 </html>
+
