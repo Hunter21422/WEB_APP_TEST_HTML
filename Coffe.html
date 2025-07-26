@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Меню кофейных напитков</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: sans-serif;
+      background: #fffbe6;
+      padding: 20px;
+      margin: 0;
+      overflow-y: scroll;
+    }
+    h1 {
+      text-align: center;
+      margin: 40px 0 20px;
+      position: relative;
+    }
+    h1::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #007bff;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    .product-card {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .product-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product-title {
+      font-size: 18px;
+      margin: 12px 0 6px;
+      font-weight: bold;
+    }
+    .product-price {
+      color: #444;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    .buy-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .buy-button:hover {
+      background-color: #0056b3;
+    }
+    select {
+      padding: 6px;
+      margin-bottom: 12px;
+      width: 100%;
+    }
+    .topnav a {
+    float: left;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+/* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #fff;
+    color: black;
+  }
+
+/* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  </style>
+</head>
+<body>
+<div class="topnav">
+  <a class="active" href="#index">Главная</a>
+  <a href="#Coffee">Кофе</a>
+  <a href="#Drinks">Напитки</a>
+  <a href="#Tea">Чай</a>
+  <a href="#Buy">Корзина</a>
+</div>
+<h1>Кофе</h1>
+<div class='grid'>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Двойной эспрессо">
+    <h2 class="product-title">Двойной эспрессо</h2>
+    <select>
+      <option>200 мл — 150 ₽</option>
+    </select>
+    <p class="product-price">Цена: 150 ₽</p>
+    <button class="buy-button">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Американо">
+    <h2 class="product-title">Американо</h2>
+    <select>
+      <option value="300" data-price="170">300 мл — 170 ₽</option>
+      <option value="400" data-price="190">400 мл — 190 ₽</option>
+      <option value="500" data-price="210">500 мл — 210 ₽</option>
+    </select>
+    <p class="product-price">Цена: 170 ₽</p>
+    <button class="buy-button">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Флет-уайт">
+    <h2 class="product-title">Флет-уайт</h2>
+    <select>
+      <option value="300" data-price="210">300 мл — 210 ₽</option>
+      <option value="400" data-price="250">400 мл — 250 ₽</option>
+      <option value="500" data-price="290">500 мл — 290 ₽</option>
+    </select>
+    <p class="product-price">Цена: 210 ₽</p>
+    <button class="buy-button">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Капучино">
+    <h2 class="product-title">Капучино</h2>
+    <select>
+      <option value="300" data-price="200">300 мл — 200 ₽</option>
+      <option value="400" data-price="240">400 мл — 240 ₽</option>
+      <option value="500" data-price="280">500 мл — 280 ₽</option>
+    </select>
+    <p class="product-price">Цена: 200 ₽</p>
+    <button class="buy-button">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Латте">
+    <h2 class="product-title">Латте</h2>
+    <select>
+      <option value="300" data-price="230">300 мл — 230 ₽</option>
+      <option value="400" data-price="260">400 мл — 260 ₽</option>
+    </select>
+    <p class="product-price">Цена: 230 ₽</p>
+    <button class="buy-button">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Раф">
+    <h2 class="product-title">Раф</h2>
+    <select>
+      <option value="300" data-price="270">300 мл — 270 ₽</option>
+      <option value="400" data-price="310">400 мл — 310 ₽</option>
+    </select>
+    <p class="product-price">Цена: 270 ₽</p>
+    <button class="buy-button">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Моккачино">
+    <h2 class="product-title">Моккачино</h2>
+    <select>
+      <option value="300" data-price="250">300 мл — 250 ₽</option>
+      <option value="400" data-price="310">400 мл — 310 ₽</option>
+    </select>
+    <p class="product-price">Цена: 250 ₽</p>
+    <button class="buy-button">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Глясе">
+    <h2 class="product-title">Глясе</h2>
+    <select>
+      <option value="300" data-price="190">300 мл — 190 ₽</option>
+      <option value="400" data-price="210">400 мл — 210 ₽</option>
+      <option value="500" data-price="230">500 мл — 230 ₽</option>
+    </select>
+    <p class="product-price">Цена: 190 ₽</p>
+    <button class="buy-button">Купить</button>
+  </div>
+    </div>
+
+<h1>Авторские кофейные напитки</h1>
+<div class="grid">
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Апельсиновый бамбл">
+    <h2 class="product-title">Апельсиновый бамбл</h2>
+    <select id="size-select-or_bumble" onchange="updatePrice('or_bumble')">
+      <option value="400" data-price="250">400 мл — 250 ₽</option>
+      <option value="500" data-price="300">500 мл — 300 ₽</option>
+    </select>
+    <p class="product-price" id="price-text-or_bumble">Цена: 250 ₽</p>
+    <button class="buy-button" onclick="handleBuy('Апельсиновый бамбл')">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Капучино сникерс">
+    <h2 class="product-title">Капучино сникерс</h2>
+    <select id="size-select-snk" onchange="updatePrice('snk')">
+      <option value="400" data-price="270">400 мл — 270 ₽</option>
+      <option value="500" data-price="330">500 мл — 330 ₽</option>
+    </select>
+    <p class="product-price" id="price-text-snk">Цена: 270 ₽</p>
+    <button class="buy-button" onclick="handleBuy('Капучино сникерс')">Купить</button>
+  </div>
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Сырный раф">
+    <h2 class="product-title">Сырный раф</h2>
+    <select id="size-select-chs" onchange="updatePrice('chs')">
+      <option value="400" data-price="310">400 мл — 310 ₽</option>
+      <option value="500" data-price="360">500 мл — 360 ₽</option>
+    </select>
+    <p class="product-price" id="price-text-chs">Цена: 310 ₽</p>
+    <button class="buy-button" onclick="handleBuy('Сырный раф')">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Арахисовый раф">
+    <h2 class="product-title">Арахисовый раф</h2>
+    <select id="size-select-arh" onchange="updatePrice('arh')">
+      <option value="400" data-price="310">400 мл — 310 ₽</option>
+      <option value="500" data-price="360">500 мл — 360 ₽</option>
+    </select>
+    <p class="product-price" id="price-text-arh">Цена: 310 ₽</p>
+    <button class="buy-button" onclick="handleBuy('Арахисовый раф')">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Халва раф">
+    <h2 class="product-title">Халва раф</h2>
+    <select id="size-select-halva" onchange="updatePrice('halva')">
+      <option value="400" data-price="310">400 мл — 310 ₽</option>
+      <option value="500" data-price="360">500 мл — 360 ₽</option>
+    </select>
+    <p class="product-price" id="price-text-halva">Цена: 310 ₽</p>
+    <button class="buy-button" onclick="handleBuy('Халва раф')">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Кокосовый раф">
+    <h2 class="product-title">Кокосовый раф</h2>
+    <select id="size-select-cocos" onchange="updatePrice('cocos')">
+      <option value="400" data-price="310">400 мл — 310 ₽</option>
+      <option value="500" data-price="360">500 мл — 360 ₽</option>
+    </select>
+    <p class="product-price" id="price-text-cocos">Цена: 310 ₽</p>
+    <button class="buy-button" onclick="handleBuy('Кокосовый раф')">Купить</button>
+  </div>
+</div>
+
+<h1>Холодный кофе</h1>
+<div class="grid">
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Айс латте">
+    <h2 class="product-title">Айс латте</h2>
+    <select id="size-select-ice_latte" onchange="updatePrice('ice_latte')">
+      <option value="400" data-price="250">400 мл — 250 ₽</option>
+      <option value="500" data-price="270">500 мл — 270 ₽</option>
+    </select>
+    <p class="product-price" id="price-text-ice_latte">Цена: 250 ₽</p>
+    <button class="buy-button" onclick="handleBuy('Айс латте')">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Американо (холодный)">
+    <h2 class="product-title">Американо (холодный)</h2>
+    <select id="size-select-americano_cold" onchange="updatePrice('americano_cold')">
+      <option value="400" data-price="200">400 мл — 200 ₽</option>
+    </select>
+    <p class="product-price" id="price-text-americano_cold">Цена: 200 ₽</p>
+    <button class="buy-button" onclick="handleBuy('Американо (холодный)')">Купить</button>
+  </div>
+
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Апельсиновый бамбл (свежевыжатый)">
+    <h2 class="product-title">Апельсиновый бамбл (свежевыжатый)</h2>
+    <select id="size-select-bamblle" onchange="updatePrice('bamblle')">
+      <option value="400" data-price="290">400 мл — 290 ₽</option>
+      <option value="500" data-price="340">500 мл — 340 ₽</option>
+    </select>
+    <p class="product-price" id="price-text-bamblle">Цена: 290 ₽</p>
+    <button class="buy-button" onclick="handleBuy('Апельсиновый бамбл (свежевыжатый)')">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Эспрессо Тоник">
+    <h2 class="product-title">Эспрессо Тоник</h2>
+    <select id="size-select-tonik" onchange="updatePrice('tonik')">
+      <option value="400" data-price="260">400 мл — 260 ₽</option>
+      <option value="500" data-price="290">500 мл — 290 ₽</option>
+    </select>
+    <p class="product-price" id="price-text-tonik">Цена: 260 ₽</p>
+    <button class="buy-button" onclick="handleBuy('Эспрессо Тоник')">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Афогато">
+    <h2 class="product-title">Афогато</h2>
+    <select id="size-select-afogato" onchange="updatePrice('afogato')">
+      <option value="200" data-price="210">200 мл — 210 ₽</option>
+    </select>
+    <p class="product-price" id="price-text-afogato">Цена: 210 ₽</p>
+    <button class="buy-button" onclick="handleBuy('Афогато')">Купить</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200" alt="Апельсиновый бамбл (тетрапак)">
+    <h2 class="product-title">Апельсиновый бамбл (тетрапак)</h2>
+    <select id="size-select-tetrapack" onchange="updatePrice('tetrapack')">
+      <option value="400" data-price="260">400 мл — 260 ₽</option>
+      <option value="500" data-price="310">500 мл — 310 ₽</option>
+    </select>
+    <p class="product-price" id="price-text-tetrapack">Цена: 260 ₽</p>
+    <button class="buy-button" onclick="handleBuy('Апельсиновый бамбл (тетрапак)')">Купить</button>
+  </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
